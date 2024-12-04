@@ -15,18 +15,21 @@
         android:layout_marginBottom="16dp" />
 
     <TextView
+        android:id="@+id/totalRestaurants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total Restaurants Visited: 0"
         android:layout_marginBottom="8dp" />
 
     <TextView
+        android:id="@+id/highestRated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Highest Rated Restaurant: None"
         android:layout_marginBottom="8dp" />
 
     <TextView
+        android:id="@+id/favoriteCuisine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Most Common Tag: None" />
