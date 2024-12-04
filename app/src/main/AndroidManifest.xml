@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyGastroMap">
 
-        <!-- Splash Screen -->
         <activity android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -19,27 +18,21 @@
             </intent-filter>
         </activity>
 
-        <!-- Main Menu -->
         <activity android:name=".MainMenuActivity"
             android:exported="false" />
 
-        <!-- Add Restaurant -->
         <activity android:name=".AddRestaurantActivity"
             android:exported="false" />
 
-        <!-- Restaurant List -->
         <activity android:name=".RestaurantListActivity"
             android:exported="false" />
 
-        <!-- Search -->
         <activity android:name=".SearchActivity"
             android:exported="false" />
 
-        <!-- Profile -->
         <activity android:name=".ProfileActivity"
             android:exported="false" />
 
-        <!-- About -->
         <activity android:name=".AboutActivity"
             android:exported="false" />
 
