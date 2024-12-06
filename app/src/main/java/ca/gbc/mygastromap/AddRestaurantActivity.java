@@ -3,11 +3,15 @@ package ca.gbc.mygastromap;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
 
 public class AddRestaurantActivity extends AppCompatActivity {
 
@@ -35,12 +39,30 @@ public class AddRestaurantActivity extends AppCompatActivity {
             String description = restaurantDescription.getText().toString();
 
             if (!name.isEmpty() && !address.isEmpty()) {
+                double latitude = 0.0;
+                double longitude = 0.0;
+
+                try {
+                    Geocoder geocoder = new Geocoder(this);
+                    List<Address> addresses = geocoder.getFromLocationName(address, 1);
+
+                    if (addresses != null && !addresses.isEmpty()) {
+                        latitude = addresses.get(0).getLatitude();
+                        longitude = addresses.get(0).getLongitude();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(this, "Unable to fetch location!", Toast.LENGTH_SHORT).show();
+                }
+
+
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
                 values.put("name", name);
                 values.put("address", address);
                 values.put("phone", phone);
                 values.put("description", description);
+                values.put("latitude", latitude);
+                values.put("longitude", longitude);
 
                 long newRowId = db.insert("restaurants", null, values);
                 if (newRowId != -1) {
