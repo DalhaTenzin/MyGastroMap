@@ -1,4 +1,3 @@
-
 package ca.gbc.mygastromap;
 
 import android.content.Intent;
